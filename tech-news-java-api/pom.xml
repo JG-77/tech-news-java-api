@@ -65,6 +65,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			<!--		added version tag to fix plugin error		-->
 				<version>${project.parent.version}</version>
 			</plugin>
 		</plugins>
