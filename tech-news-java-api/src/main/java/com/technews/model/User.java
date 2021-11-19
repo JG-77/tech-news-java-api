@@ -41,6 +41,7 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Comment> comments;
 
+    //Warning: Post Comment and Vote were an error until their classes were made
 
     public User() {
     }
