@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--Thymeleaf attribute layout:decorate="~{layout}" specifies that this login.html page will be bound to the layout.html main template page-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Login</title>
+</head>
+
+<body>
+<!--layout:fragment="content" attribute defines which content we want to place in the content <div> of the layout page-->
+<div layout:fragment="content">
+
+    <div th:if="${notice}" class="flash-message">
+        <h3>[[${notice}]]</h3>
+    </div>
+<!--th:action="@{/users}" attribute designates the API route for submitting this form-->
+<!--th:object="${user}" designates that the submitted form fields will comprise a user object-->
+<!-- method attribute designates it as a POST request-->
+    <form action="#" th:action="@{/users/login}" th:object="${user}" method="post" class="login-form">
+        <div>
+            <label>email:</label>
+            <input type="text" th:field="*{email}"/>
+        </div>
+        <div>
+            <label>password:</label>
+            <input type="password" th:field="*{password}"/>
+        </div>
+        <div>
+            <button type="submit">login</button>
+<!--forms include three input fields, where we designate the type as either text or password and then give a name to the field, via th:field-->
+        </div>
+    </form>
+
+
+
+    <form action="#" th:action="@{/users}" th:object="${user}" method="post" class="signup-form">
+        <div>
+            <label>username:</label>
+            <input type="text" th:field="*{username}"/>
+        </div>
+        <div>
+            <label>email:</label>
+            <input type="text" th:field="*{email}"/>
+        </div>
+        <div>
+            <label>password:</label>
+            <input type="password" th:field="*{password}"/>
+        </div>
+        <div>
+            <button type="submit">signup</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
